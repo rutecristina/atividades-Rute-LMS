@@ -1,0 +1,27 @@
+#titulo {
+}
+
+#conteudo {
+    max-width: 60%;
+    margin: 0 auto;
+}
+#boneco-box {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    border: 1px solid black;
+}
+header {
+    text-align: center;
+}
+line {
+    stroke-width: 4px;
+    stroke: black;
+}
+circle {
+    fill: white;
+    stroke-width: 4px;
+}
+textarea {
+    resize: none;
+}

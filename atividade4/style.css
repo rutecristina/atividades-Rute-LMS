@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    src: url(fontawesome\ \ \(1\).woff) format("woff");
+    font-family: "fontawesome"
+}
+.marca {
+    background-color: white;
+    max-width: 30%;
+    font-size: 37px;
+    float: left;
+    font-family: "fontawesome";
+    padding: 15px;
+}
+.slogan {
+    background-color: white;
+    font-size: 15px;
+    position: relative;
+    float: right;
+    display: inline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 35px;
+    padding-right: 15px;
+    letter-spacing: 4px;
+}
+header {
+    overflow: hidden;
+}
+span {
+    color: #4CAF50;
+}
+.barradenav {
+    background-color: #4CAF50;
+    color: white;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown:hover .content {
+    display: block;
+}
+.content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 300px;
+    width: 100%;
+
+}
+.content a {
+    color: black;
+    padding: 8px 16px;
+    display: block;
+    text-decoration: none;
+}
+.content a:hover {
+    background: #dddddd;
+}
+.dropbutton {
+    background-color: inherit;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+    border: none;
+    letter-spacing: 3px;
+}
+.dropdown:hover .dropbutton {
+    color: black;
+    background: white;
+}
+.barrafixa a{
+    background: white;
+    color: black;
+    padding: 8px 16px;
+    display: block;
+    text-decoration: none;
+}
+.barrafixa a:hover {
+    background: #dddddd;
+}
+.barrafixa {
+    width: 300px;
+    background: red;
+}
