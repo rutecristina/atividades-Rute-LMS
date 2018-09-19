@@ -33,7 +33,7 @@ span {
 }
 .barradenav {
     background-color: #4CAF50;
-    color: white;
+    box-shadow: 2px 2px #d1cccc;
 }
 .dropdown {
     position: relative;
@@ -48,13 +48,16 @@ span {
     background-color: #f1f1f1;
     min-width: 300px;
     width: 100%;
-
 }
 .content a {
     color: black;
     padding: 8px 16px;
     display: block;
     text-decoration: none;
+}
+.content h3 {
+    padding: 8px 16px;
+    font-weight: normal;
 }
 .content a:hover {
     background: #dddddd;
@@ -74,14 +77,20 @@ span {
 .barrafixa a{
     background: white;
     color: black;
-    padding: 8px 16px;
+    padding: 4px 16px;
     display: block;
     text-decoration: none;
 }
 .barrafixa a:hover {
     background: #dddddd;
 }
+.barrafixa h3 {
+    padding: 8px 16px;
+    font-weight: normal;
+}
 .barrafixa {
-    width: 300px;
-    background: red;
+    width: 250px;
+    box-shadow: 2px 2px #e6e4e4;
+    min-height: 2000px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
