@@ -1,0 +1,156 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+body {
+    background:black;
+}
+header {
+    text-align: center;
+    color: aliceblue;
+    background: black;
+    padding: 20px;
+}
+.coluna {
+    float: left;
+    position: relative;
+    border: 1px solid black;
+    color: white;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown .dropbutton {
+    border: none;
+    padding: 8px 60px;
+    background: black;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.dropdown:hover .dropbutton {
+    color: black;
+    background: white;
+}
+a {
+    text-decoration: none;
+}
+.dropdown a:hover {
+    background: white;
+    color: black;
+}
+.dropdown a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.dropdown .content li {
+    max-height: 0px;
+    transition: max-height 300ms;
+}
+.dropdown:hover li {
+    max-height: 100%;
+}
+.dropdown:hover .content {
+    display: block;
+    box-shadow: 1px 1px 1px 1px rgb(119, 118, 118);
+}
+.dropdown .content {
+    overflow: hidden;
+    background: #454643;
+    position: absolute;
+    max-height: 0px;
+    display: block;
+    transition: max-height 300ms;
+    width: 200px;
+}
+.dropdown:hover .content {
+    max-height: 600px;
+}
+#coluna1 {
+    width: 13%;
+    font-size: 20px;
+    background: black;
+    background-image: linear-gradient(black, gray);
+}
+#coluna1 a:hover {
+    background: white;
+    color: black;
+}
+#coluna1 li {
+    padding: 2px 3px;
+    height: 100%;
+}
+li {
+    list-style-type: none;
+}
+#coluna2 {
+    width: 71%;
+    background: #222020;
+    height: 1000px;
+}
+#coluna3 {
+    width: 15%;
+    text-align: center;
+    background-image: linear-gradient(black, white);
+    height: 1000px;
+}
+.barrafixa {
+    height: 1000px;
+    box-shadow: 1px 0px rgb(85, 84, 84);
+}
+a:visited {
+    color: inherit;
+}
+h1 {
+    font-size: 26px;
+}
+h3 {
+    padding: 10px;
+}
+.imagem {
+    width: 200px;
+    height: 200px;
+}
+@keyframes rodar-transladar {
+    0%{
+        transform: translate(0, 250px) rotate(0deg);
+    }
+    25%{
+        transform: translate(250px, 500px) rotate(360deg) ;
+    }
+    50%{
+        transform: translate(500px, 250px) rotate(720deg) ;
+    }
+    75%{
+        transform: translate(250px, 0px) rotate(1000deg);
+    }
+    100%{
+        transform: translate(0px, 250px) rotate(0deg);
+    }
+}
+.animada{
+    animation-name: rodar-transladar;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@media screen and (max-width: 600px) {
+    .coluna {
+        overflow: hidden;
+    }
+    #coluna1 {
+        width: 100%;
+        height: 310px;
+    }
+    #coluna2 {
+        width: 100%;
+        height: 700px;
+    }
+    #coluna3 {
+        width: 100%;
+        height: 200px;
+    } 
+    .imagem {
+        width: 200px;
+        height: 200px;
+    }
+}
