@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="whats2.png" />
+    <link rel="stylesheet" href="whatsapp.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <title>Whatsapp web</title>
+</head>
+
+<body>
+    <div class="content">
+
+        <div class="barraesquerda" id="barraesquerda">
+            <div class="nome-programa">
+                Whatsapp Web
+            </div>
+
+            <div class="listafriends" id="listafriends">
+            </div>
+
+            <form id="addgrupo-form">
+                <input type="text" id="gruponome" placeholder="Nome do grupo" autocomplete="off" required> 
+                <input type="text" id="grupoid" placeholder="ID do grupo" autocomplete="off" required>
+                <button id="criargrupo-button" type="submit">enviar</button>
+            </form>
+        </div>
+
+
+        <div class="conversa">
+            <div class="grupofamilly">
+                <div>
+                    <img src="familia.png" alt="" class="foto">
+                    <h2>Grupo da familia</h2>
+                    <button class="botao" id="entrar">Entrar</button>
+                </div>
+            </div>
+            <div class="mensagens" id="mensagens">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Mãe</h3>
+                        </div>
+                        <div class="panel-body">
+                            Saudades
+                        </div>
+                    </div>
+            </div>
+            <form id="campo-msg">
+                <input type="text" id="input-msg" placeholder="Digite sua mensagem aqui..." autocomplete="off">
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box">
+            <div class="modalheader">
+                <h2>Login</h2>
+                <span class="close" id="close"> x </span>
+            </div>
+            <form class="modalbody" id="formulario">
+                <input class="login-input" id="login-input" type="text" autocomplete="off" placeholder="Digite seu ID">
+            </form>
+        </div>
+    </div>
+    <!-- <script src="grupos.js"></script> -->
+    <script src="whatsapp.js"></script>
+</body>
+
+</html>
