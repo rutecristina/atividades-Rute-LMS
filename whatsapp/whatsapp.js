@@ -1,4 +1,5 @@
-
+const API_URL1 = "http://rem-rest-api.herokuapp.com/api/"
+const API_URL = "http://rest.learncode.academy/api/rute/"
 function criarGrupoElemento(nomeGrupo, id) {
 
     let grupo = document.createElement("div");
@@ -43,30 +44,38 @@ function criarMensagemElemento(usuario, texto) {
 function configurarGrupos() {
     let listaGrupos = document.getElementsByClassName("grupo");
     [...listaGrupos].forEach(function (gp) {
-        let id = gp.getAttribute("id");
-        id = id.replace("grupo-", "");
-        gp.addEventListener("click", function() {
-            window.localStorage.setItem("groupid", id);
-            gerarMensagens(id);
-        });
+        configurarNovoGrupo(gp, [...listaGrupos]);
+    });
+}
+
+function configurarNovoGrupo(grupo, listaGrupos) {
+    let id = grupo.getAttribute("id").replace("grupo-");
+    let nome = grupo.children[1].innerText;
+    grupo.addEventListener("click", function() {
+        window.localStorage.setItem("grupoid", id);
+        atualizarSelecionados(grupo, [...listaGrupos]);
+        atualizarTituloConversa(nome);
+        gerarMensagens(id);
     });
 }
 
 function gerarGrupos() {
 
-    let promise = fetch("http://rest.learncode.academy/api/rute/groups");
+    let promise = fetch(API_URL + "groups");
     let resultadoJSON = promise.then(res => res.json());
     resultadoJSON.then(function(grupos) {
+        console.log(grupos)
         mostrarGrupos(grupos);
         configurarGrupos();
     });
 }
 
-function gerarMensagens(groupId) {
-    console.log(groupId)
-    let promise = fetch("http://rest.learncode.academy/api/rute/" + groupId);
+function gerarMensagens(grupoid) {
+    let promise = fetch(API_URL + grupoid);
     let resultadoJSON = promise.then(res => res.json());
-    resultadoJSON.then(msgs => mostrarMensagensGrupo(msgs));
+    resultadoJSON.then(msgs => {
+        mostrarMensagensGrupo(msgs);
+    });
 }
 
 function mostrarGrupos(grupos) {
@@ -78,8 +87,18 @@ function mostrarGrupos(grupos) {
     });
 }
 
+function atualizarTituloConversa(nomeGrupo) {
+    document.getElementById('titulo-conversa').innerHTML = nomeGrupo;
+}
+
+function atualizarSelecionados(grupoDOM, listaGrupos) {
+    listaGrupos.forEach(function(grupo) {
+        grupo.setAttribute("class", "grupo");
+    })
+    grupoDOM.classList.add("grupo-selecionado");
+}
+
 function mostrarMensagensGrupo(mensagens) {
-    console.log(mensagens);
     let mensagensDiv = document.getElementById("mensagens");
     mensagensDiv.innerHTML = "";
     mensagens.forEach(function (msg) {
@@ -95,7 +114,7 @@ async function enviarMensagem(event) {
     let userid = window.localStorage.getItem("userid");
     let msgUser = {userName: userid, message: campoMsg.value};
     campoMsg.value = "";
-    let resposta = await fetch("http://rest.learncode.academy/api/rute/" + groupid, {
+    let resposta = await fetch(API_URL + groupid, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(msgUser)
@@ -160,7 +179,7 @@ function configurarModal() {
 }
 
 async function enviarGp(grupo) {
-    let resposta = await fetch('http://rest.learncode.academy/api/rute/groups', {
+    let resposta = await fetch(API_URL + grupo.groupID, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(grupo)
@@ -168,7 +187,7 @@ async function enviarGp(grupo) {
     let resultado = await resposta.json();
     let grupoElemento = criarGrupoElemento(resultado.groupName, resultado.groupID);
     document.getElementById("listafriends").appendChild(grupoElemento);
-
+    configurarNovoGrupo(grupoElemento, document.getElementsByClassName("grupo"));
 }
 
 function criarGp(event) {
