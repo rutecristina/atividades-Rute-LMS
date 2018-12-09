@@ -21,3 +21,19 @@
     padding: 3px;
     margin: 3px;
 }
+#sairbotao {
+    display: none;
+}
+.botaofinalizar {
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    margin: 22px;
+    border: solid blue;
+    color: white;
+    background: blue;
+    border-radius: 5px;
+}
+#limparCesta {
+    margin: 38px;
+}
